@@ -4,7 +4,7 @@ class VersesController < ApplicationController
   # GET /verses
   # GET /verses.json
   def index
-    @verses = Verse.all
+    @verses = Verse.all.order('created_at desc')
   end
 
   # GET /verses/1
