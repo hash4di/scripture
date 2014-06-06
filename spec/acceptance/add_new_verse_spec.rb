@@ -1,9 +1,16 @@
 require 'spec_helper'
+require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Add new verse" do
 
+  let(:user) { FactoryGirl.create(:user) }
+
+  background do
+    @user = user
+    login
+  end
+
   scenario "User saves a new verse" do
-    visit "/verses"
 
     click_link "New Verse"
 
