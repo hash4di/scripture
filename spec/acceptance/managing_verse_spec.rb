@@ -41,7 +41,13 @@ feature "Add new verse" do
       click_button "Update Verse"
 
       expect(page).to have_text("FooBar3 20:20")
-      save_and_open_page
+    end
+
+    scenario "User remove a verse" do
+      visit verses
+      click_link "Destroy"
+
+      expect(page).to have_text("Verse was successfully destroyed.")
     end
   end
 end
