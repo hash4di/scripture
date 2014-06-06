@@ -4,6 +4,10 @@ module NavigationHelpers
   def homepage
     "/"
   end
+
+  def verses
+    "/verses"
+  end
 end
 
 RSpec.configuration.include NavigationHelpers, :type => :acceptance

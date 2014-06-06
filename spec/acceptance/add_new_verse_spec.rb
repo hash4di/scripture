@@ -10,19 +10,38 @@ feature "Add new verse" do
     login
   end
 
-  scenario "User saves a new verse" do
+  context "User manage a verse" do
+    background do
+      @verse = FactoryGirl.create(:verse, :user => @user)
+    end
 
-    click_link "New Verse"
+    scenario "User saves a new verse" do
 
-    expect(page).to have_text("New verse")
+      click_link "New Verse"
 
-    fill_in "Title", :with => "Iz 40:26"
-    fill_in "Description", :with => "Ciekawy dla mnie werset"
-    fill_in "Label", :with => "Osobisty"
+      expect(page).to have_text("New verse")
 
-    click_button "Create Verse"
+      fill_in "Title", :with => "Iz 40:26"
+      fill_in "Description", :with => "Ciekawy dla mnie werset"
+      fill_in "Label", :with => "Osobisty"
 
-    expect(page).to have_text("Iz 40:26")
+      click_button "Create Verse"
+
+      expect(page).to have_text("Iz 40:26")
+    end
+
+    scenario "User edit a verse" do
+      visit verses
+      click_link "Edit"
+      expect(page).to have_text("Editing verse")
+
+      fill_in "Title", :with => "FooBar3 20:20"
+      fill_in "Description", :with => "Jeszcze ciekawszy tekst"
+      fill_in "Label", :with => "Inne"
+      click_button "Update Verse"
+
+      expect(page).to have_text("FooBar3 20:20")
+      save_and_open_page
+    end
   end
-
 end
