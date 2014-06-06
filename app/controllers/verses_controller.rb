@@ -1,10 +1,11 @@
 class VersesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_verse, only: [:show, :edit, :update, :destroy]
 
   # GET /verses
   # GET /verses.json
   def index
-    @verses = Verse.all.order('created_at desc')
+    @verses = current_user.verses('created_at desc')
   end
 
   # GET /verses/1
@@ -24,7 +25,7 @@ class VersesController < ApplicationController
   # POST /verses
   # POST /verses.json
   def create
-    @verse = Verse.new(verse_params)
+    @verse = current_user.verses.new(verse_params)
 
     respond_to do |format|
       if @verse.save
