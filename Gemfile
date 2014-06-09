@@ -33,6 +33,10 @@ gem 'shoulda', '3.5.0',               group: [:development, :test]
 gem 'factory_girl_rails', '4.4.1',    group: :test
 gem 'steak', '2.0.0',                 group: :test
 gem 'selenium-webdriver', '2.42.0',   group: :test
+gem 'simple_form', '3.0.2',           group: :app
+gem 'therubyracer', '0.12.1'
+gem 'less-rails', '2.5.0'             #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'twitter-bootstrap-rails', :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
