@@ -1,29 +1,44 @@
-<%= form_for(@verse) do |f| %>
-  <% if @verse.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@verse.errors.count, "error") %> prohibited this verse from being saved:</h2>
-
-      <ul>
-      <% @verse.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for @verse, :html => { :class => 'form-horizontal',
+  wrapper: :horizontal_form
+  } do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <a href='javascript:void(0)', class='controls', id='create_new_label'>Create new label</a>
+  <a href='javascript:void(0)', class='controls', id='use_existing_label', hidden>Use existing label</a>
+  <div id='add_new_label' hidden>
+    <%= f.input :label %>
+  </div>
+  <div id='select_label'>
+    <div class='control-group string required verse_label'>
+      <label class="text required control-label" for="verse_label">
+        <abbr title="required">*</abbr> Label</label>
+      <div class='controls'>
+        <%= label_select(@verse) %>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :label %><br>
-    <%= f.text_field :label %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit %>
 <% end %>
+
+<script>
+  $("input#verse_label").attr('disabled', 'true');
+  $("#create_new_label").click(function(e) {
+    e.stopPropagation();
+    $("#add_new_label").show();
+    $("select#verse_label").attr('disabled', 'true');
+    $("#create_new_label").hide();
+    $("#use_existing_label").show();
+    $("#select_label").hide()
+    $("input#verse_label").removeAttr('disabled');
+  });
+
+  $("#use_existing_label").click(function(e) {
+    e.stopPropagation();
+    $("#add_new_label").hide();
+    $("input#verse_label").attr('disabled', 'true');
+    $("select#verse_label").removeAttr('disabled');
+    $("#create_new_label").show();
+    $("#use_existing_label").hide();
+    $("#select_label").show()
+  });
+</script>

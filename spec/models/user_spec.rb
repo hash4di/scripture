@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
 
-  let (:new_user) { build(:user) }
+  let (:new_user) { create(:user) }
 
   subject { new_user}
 

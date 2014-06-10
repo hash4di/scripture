@@ -6,8 +6,9 @@ module LoginHelpers
     visit homepage
     click_link "sign in"
     page.should have_content "Sign in"
-    fill_in "user_email", :with => "user@example.com"
-    fill_in "user_password", :with => "user_password"
+    email = @user ? @user.email : "user@example.com"
+    fill_in "user_email", :with => email
+    fill_in "user_password", :with => "password123"
     click_button "Sign in"
     page.should have_content "Signed in successfully."
   end
