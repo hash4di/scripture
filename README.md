@@ -1,4 +1,4 @@
 scripture
 =========
 
-Scripture Saver for favourites verses form Bible in NWT.
+Scripture Saver for favourites verses from Bible in NWT.
