@@ -9,6 +9,7 @@ feature "Bible review" do
     background do
       @user = FactoryGirl.create(:user)
       @verse = FactoryGirl.create(:verse)
+      @scripts = FactoryGirl.create_list(:script, 10)
       login
     end
 
@@ -17,6 +18,16 @@ feature "Bible review" do
       click_link "Przeglądaj Biblię"
 
       expect(page).to have_text("Przeglądaj Biblię NWT")
+    end
+
+    scenario "User search for a specific verse" do
+      visit homepage
+      click_link "Przeglądaj Biblię"
+
+      fill_in "search", :with => "consectetur25"
+      click_button "Search"
+
+      expect(page).to have_text("consectetur25")
     end
 
   end
