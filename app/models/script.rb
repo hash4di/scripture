@@ -85,9 +85,4 @@ class Script < ActiveRecord::Base
     puts "Saved record with: book: #{a[:book]}, chapter: #{a[:chapter]}, line: #{a[:line]}, body: #{a[:body]}"
   end
 
-  #def self.search(params)
-    #searched = order('created_at ASC') # note: default is all, just sorted
-    #searched = searched.where('body LIKE ?', "%#{params[:search]}%").order('created_at ASC') if params[:search].present?
-    #searched
-  #end
 end
