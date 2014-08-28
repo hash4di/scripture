@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="content">
+    <% if user_signed_in? %>
+    <% else %>
+      <div class="hero-unit" id="hero">
+        <h1>Scripture Saver</h1>
+        <p>Save your favourites verses from NWT Bible and share with others. Enjoy!</p>
+      </div>
+      <div class="row-fluid">
+        <ul class="thumbnails">
+          <li class="">
+            <div class="">
+              <h1 class="text-center"><%= link_to "sign up", new_user_registration_path, :class => 'btn btn-large' %></h1>
+            </div>
+          </li>
+          <li class="">
+            <div class="">
+              <h1 class="text-center"><%= link_to "sign in", new_user_session_path, :class => 'btn btn-large' %></h1>
+            </div>
+          </li>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+</div>

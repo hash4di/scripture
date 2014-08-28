@@ -1,23 +1,34 @@
-<%= simple_form_for @verse, :html => { :class => 'form-horizontal',
-  wrapper: :horizontal_form
+<%= simple_form_for @verse, :html => { :class => 'form'
   } do |f| %>
-  <%= f.input :title %>
-  <%= f.input :description %>
-  <a href='javascript:void(0)', class='controls', id='create_new_label'>Create new label</a>
-  <a href='javascript:void(0)', class='controls', id='use_existing_label', hidden>Use existing label</a>
+  <div class="form-group">
+    <%= f.input :title, :type => "title", :class => "form-cotrol", :placeholder => "Title" %>
+  </div>
+  <div class="form-group">
+    <%= f.input :description, :type => "description", :class => "form-cotrol", :placeholder => "Description" %>
+  </div>
   <div id='add_new_label' hidden>
     <%= f.input :label %>
   </div>
-  <div id='select_label'>
-    <div class='control-group string required verse_label'>
-      <label class="text required control-label" for="verse_label">
-        <abbr title="required">*</abbr> Label</label>
-      <div class='controls'>
-        <%= label_select(@verse) %>
+  <div class="form-group">
+    <div id='select_label'>
+      <div class='control-group string required verse_label'>
+        <label class="text required control-label" for="verse_label">
+          <abbr title="required">*</abbr> Label</label>
+        <div class='controls'>
+          <%= label_select(@verse) %>
+        </div>
       </div>
     </div>
   </div>
-  <%= f.button :submit %>
+  <div class="form-group">
+    <a href='javascript:void(0)', class='controls btn btn-default', id='create_new_label'>Create new label</a>
+  </div>
+  <div class="form-group">
+    <a href='javascript:void(0)', class='controls', id='use_existing_label', hidden>Use existing label</a>
+  </div>
+  <div class="form-group">
+    <%= f.button :submit, :class => "btn btn-primary" %>
+  </div>
 <% end %>
 
 <script>

@@ -1,6 +1,7 @@
-<h1>Editing verse</h1>
+<%= render 'header' %>
+<h2>Editing verse</h2>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @verse %> |
-<%= link_to 'Back', verses_path %>
+</br>
+</br>
+<%= link_to 'Delete verse', @verse, method: :delete, :class => "btn btn-danger" %>

@@ -1,19 +1,9 @@
-<p id="notice"><%= notice %></p>
+<%= render 'header' %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @verse.title %>
-</p>
+<h4><%= @verse.title %> | <small><%= @verse.label %></small></h4>
 
-<p>
-  <strong>Description:</strong>
+<blockquote>
   <%= @verse.description %>
-</p>
+</blockquote>
 
-<p>
-  <strong>Label:</strong>
-  <%= @verse.label %>
-</p>
-
-<%= link_to 'Edit', edit_verse_path(@verse) %> |
-<%= link_to 'Back', verses_path %>
+<%= link_to 'Edit', edit_verse_path(@verse), :class => "btn btn-default" %>
