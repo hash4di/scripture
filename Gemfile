@@ -36,9 +36,10 @@ gem 'selenium-webdriver', '2.42.0',   group: :test
 gem 'simple_form', '3.0.2',           group: :app
 gem 'therubyracer', '0.12.1'
 gem 'less-rails', '2.5.0'             #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem 'twitter-bootstrap-rails',        :git => 'https://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails', '3.2.0'
 gem 'database_cleaner', '1.3.0',      group: :test
 gem 'nokogiri', '1.6.2.1',            group: :development
+gem 'search_cop', '1.0.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
