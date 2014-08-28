@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :verses
   resources :home
-  resources :script
+  resources :script do
+    collection do
+      get 'search'
+    end
+  end
   root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

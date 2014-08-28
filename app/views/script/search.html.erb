@@ -1,0 +1,23 @@
+<h1>Search result </h1>
+
+  <table class="table table-hover table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Księga</th>
+        <th>Roz.</th>
+        <th>Wer.</th>
+        <th>Treść:</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @scripts.each do |text| %>
+        <tr>
+          <td><%= text.book_name(text.book.to_s) %></td>
+          <td><%= text.chapter %></td>
+          <td><%= text.line %></td>
+          <td><%= text.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

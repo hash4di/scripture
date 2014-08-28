@@ -1,7 +1,10 @@
 class ScriptController < ApplicationController
 
   def index
-    @scripts = Script.all.search(params[:search])
+  end
+
+  def search
+    @scripts = Script.search(params[:search])
   end
 
   private

@@ -1,4 +1,5 @@
 class Script < ActiveRecord::Base
+  include SearchCop
 
   BOOKS = { 
     "1" => "Rodzaju", 
@@ -69,6 +70,11 @@ class Script < ActiveRecord::Base
     "66" => "Objawienia"
   }
 
+  self.search_scope :search do
+    attributes :body
+  end
+
+
   has_and_belongs_to_many :verses
 
   def book_name(book_number)
@@ -79,11 +85,9 @@ class Script < ActiveRecord::Base
     puts "Saved record with: book: #{a[:book]}, chapter: #{a[:chapter]}, line: #{a[:line]}, body: #{a[:body]}"
   end
 
-  def self.search(search)
-    if search
-      where('body LIKE ?', "%#{search}%")
-    else
-      all
-    end
-  end
+  #def self.search(params)
+    #searched = order('created_at ASC') # note: default is all, just sorted
+    #searched = searched.where('body LIKE ?', "%#{params[:search]}%").order('created_at ASC') if params[:search].present?
+    #searched
+  #end
 end
