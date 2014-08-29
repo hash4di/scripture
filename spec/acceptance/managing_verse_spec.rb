@@ -12,15 +12,14 @@ feature "Add new verse" do
       @verse = FactoryGirl.create(:verse)
       login
     end
-    scenario "User saves a new verse", :js => true do
+    scenario "User saves a new verse" do
       visit homepage
-      click_link "New Verse"
+      find("[@alt='New Verse']").click
 
       expect(page).to have_text("New verse")
 
       fill_in "Title", :with => "Iz 40:26"
       fill_in "Description", :with => "Ciekawy dla mnie werset"
-      click_link('Create new label')
       fill_in "Label", :with => "Osobisty"
 
       click_button "Create Verse"
@@ -28,15 +27,14 @@ feature "Add new verse" do
       expect(page).to have_text("Iz 40:26")
     end
 
-    scenario "User edit a verse", :js => true do
+    scenario "User edit a verse" do
       visit verses
-      click_link "New Verse"
+      find("[@alt='New Verse']").click
 
       expect(page).to have_text("New verse")
 
       fill_in "Title", :with => "Iz 40:26"
       fill_in "Description", :with => "Ciekawy dla mnie werset"
-      click_link('Create new label')
       fill_in "Label", :with => "Osobisty"
 
       click_button "Create Verse"
@@ -47,29 +45,28 @@ feature "Add new verse" do
 
       fill_in "Title", :with => "FooBar3 20:20"
       fill_in "Description", :with => "Jeszcze ciekawszy tekst"
-      click_link('Create new label')
       fill_in "Label", :with => "Inne"
       click_button "Update Verse"
 
       expect(page).to have_text("FooBar3 20:20")
     end
 
-    scenario "User remove a verse", :js => true do
+    scenario "User remove a verse" do
       visit verses
-      click_link "New Verse"
+      find("[@alt='New Verse']").click
 
       expect(page).to have_text("New verse")
 
       fill_in "Title", :with => "Iz 40:26"
       fill_in "Description", :with => "Ciekawy dla mnie werset"
-      click_link('Create new label')
       fill_in "Label", :with => "Osobisty"
 
       click_button "Create Verse"
 
       expect(page).to have_text("Iz 40:26")
       visit verses
-      click_link "Destroy"
+      click_link "Iz 40:26"
+      find("[@alt='Delete verse']").click
 
       expect(page).to have_text("Verse was successfully destroyed.")
     end

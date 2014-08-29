@@ -15,19 +15,19 @@ feature "Bible review" do
 
     scenario "Open Bible page" do
       visit homepage
-      click_link "Przeglądaj Biblię"
+      find("[@alt='Bible']").click
 
-      expect(page).to have_text("Przeglądaj Biblię NWT")
+      expect(page).to have_text("Reading Bible as bi12 will be soon")
     end
 
     scenario "User search for a specific verse" do
       visit homepage
-      click_link "Przeglądaj Biblię"
+      find("[@alt='Bible']").click
 
       fill_in "search", :with => "consectetur25"
-      click_button "Search"
+      find("[@alt='Search']").click
 
-      expect(page).to have_text("consectetur25")
+      expect(page).to have_text("Lorem ipsum dolor sit amet")
     end
 
   end
