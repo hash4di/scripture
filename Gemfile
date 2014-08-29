@@ -36,7 +36,7 @@ gem 'therubyracer', '0.12.1'
 gem 'less-rails', '2.5.0' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', '3.2.0'
 gem 'database_cleaner', '1.3.0',      group: :test
-gem 'nokogiri', '1.6.2.1',            group: :development
+gem 'nokogiri', '1.6.2.1'
 gem 'search_cop', '1.0.1'
 gem 'rails_12factor'
 
