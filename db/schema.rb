@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20140722103518) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+
   create_table "scripts", force: true do |t|
     t.integer  "book"
     t.integer  "chapter"
@@ -37,18 +41,18 @@ ActiveRecord::Schema.define(version: 20140722103518) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "verses", force: true do |t|
     t.string   "title"
-    t.text     "description", limit: 120
+    t.text     "description"
     t.string   "label"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "verses", ["user_id"], name: "index_verses_on_user_id"
+  add_index "verses", ["user_id"], name: "index_verses_on_user_id", using: :btree
 
 end
