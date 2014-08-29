@@ -39,6 +39,7 @@ gem 'database_cleaner', '1.3.0',      group: :test
 gem 'nokogiri', '1.6.2.1',            group: :development
 gem 'search_cop', '1.0.1'
 
+ruby '2.1.2'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
