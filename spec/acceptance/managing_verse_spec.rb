@@ -6,11 +6,15 @@ Warden.test_mode!
 feature "Add new verse" do
 
   context "Login: " do
-    scenario "User not login properly" do
+    scenario "User not logged properly" do
       visit homepage
-      click_link "sign in"
+      click_link "Sign in"
 
-      fill_in "Email"
+      fill_in "user_email", :with => "example"
+      fill_in "user_password", :with => "password123"
+      click_button "Sign in"
+
+      expect(page).to have_text("Invalid email or password")
     end
 
   end

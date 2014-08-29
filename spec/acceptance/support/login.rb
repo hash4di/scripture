@@ -4,7 +4,7 @@ module LoginHelpers
 
   def login
     visit homepage
-    click_link "sign in"
+    click_link "Sign in"
     page.should have_content "Sign in"
     email = @user ? @user.email : "user@example.com"
     fill_in "user_email", :with => email
