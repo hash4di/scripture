@@ -1,6 +1,7 @@
 class ScriptController < ApplicationController
 
   def index
+    @script = Script.select('DISTINCT book')
   end
 
   def search
@@ -9,6 +10,7 @@ class ScriptController < ApplicationController
 
   private
 
+    # Use callbacks to share common setup or constraints between actions.
     attr_accessor :script
     attr_accessor :scripts_attributes
     attr_accessor :verses
