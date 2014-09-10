@@ -74,9 +74,6 @@ class Script < ActiveRecord::Base
     attributes :body
   end
 
-
-  has_and_belongs_to_many :verses
-
   def book_name(book_number)
     BOOKS[book_number]
   end
