@@ -75,7 +75,7 @@ class Script < ActiveRecord::Base
   end
 
   def book_name(book_number)
-    BOOKS[book_number]
+    BOOKS[book_number.to_s]
   end
 
   def self.create(a = {})
