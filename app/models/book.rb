@@ -1,7 +1,6 @@
 class Book
 
   attr :url
-  attr :name
 
   def initialize(url)
     @url = url
