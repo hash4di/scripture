@@ -10,11 +10,6 @@ class ScriptController < ApplicationController
 
   private
 
-    # Use callbacks to share common setup or constraints between actions.
-    attr_accessor :script
-    attr_accessor :scripts_attributes
-    attr_accessor :verses
-
     def book_number
       params[:script][:book]
     end
