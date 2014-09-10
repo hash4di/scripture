@@ -13,7 +13,7 @@
   <tbody>
     <% @scripts.each do |text| %>
       <tr>
-        <td><%= text.book_name(text.book.to_s) %></td>
+        <td><%= text.book_name(text.book) %></td>
         <td><%= text.chapter %></td>
         <td><%= text.line %></td>
         <td><%= text.body %></td>
