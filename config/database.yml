@@ -30,8 +30,10 @@ defaults: &defaults
 development:
   <<: *defaults
 
-test: &test
-  <<: *defaults
+test:
+  adapter: postgresql
+  database: travis_ci_test
+  username: postgres
 
 production:
   <<: *defaults
