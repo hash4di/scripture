@@ -176,6 +176,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.4)
     tilt (1.4.1)
+    travis-lint (2.0.0)
+      json
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -222,6 +224,7 @@ DEPENDENCIES
   spring
   steak (= 2.0.0)
   therubyracer (= 0.12.1)
+  travis-lint (= 2.0.0)
   turbolinks
   twitter-bootstrap-rails (= 3.2.0)
   uglifier (>= 1.3.0)

@@ -40,6 +40,7 @@ gem 'nokogiri', '1.6.2.1'
 gem 'search_cop', '1.0.1'
 gem 'rails_12factor'
 gem 'annotate', '2.6.5',              :group => [:development]
+gem 'travis-lint', '2.0.0',           :group => [:development]
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
