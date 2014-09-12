@@ -6,6 +6,7 @@ class ScriptController < ApplicationController
 
   def search
     @scripts = Script.search(params[:search])
+    @verses = current_user.verses.search(params[:search])
   end
 
 end

@@ -5,7 +5,7 @@ class VersesController < ApplicationController
   # GET /verses
   # GET /verses.json
   def index
-    @verses = current_user.verses.search(params[:search])
+    @verses = current_user.verses
   end
 
   # GET /verses/1

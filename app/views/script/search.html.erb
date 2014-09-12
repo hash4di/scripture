@@ -1,23 +1,49 @@
 <%= render 'header' %>
 
-<table class="table table-hover table-condensed table-striped">
-  <thead>
-    <tr>
-      <th>Księga</th>
-      <th>Roz.</th>
-      <th>Wer.</th>
-      <th>Treść:</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @scripts.each do |text| %>
+<div class="container">
+  <h3>Search in your Verses:</h3>
+  <table class="table table-hover table-condensed table-striped">
+    <thead>
       <tr>
-        <td><%= text.book_name(text.book) %></td>
-        <td><%= text.chapter %></td>
-        <td><%= text.line %></td>
-        <td><%= text.body %></td>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Label</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @verses.each do |verse| %>
+        <tr>
+          <td><%= link_to verse.title, edit_verse_path(verse) %></td>
+          <td><%= verse.description %></td>
+          <td><%= verse.label %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</br>
+<div class="container">
+  <h3>Search in Bible:</h3>
+  <table class="table table-hover table-condensed table-striped">
+    <thead>
+      <tr>
+        <th>Book</th>
+        <th>Chapt.</th>
+        <th>Ver.</th>
+        <th>Content:</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @scripts.each do |text| %>
+        <tr>
+          <td><%= text.book_name(text.book) %></td>
+          <td><%= text.chapter %></td>
+          <td><%= text.line %></td>
+          <td><%= text.body %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
