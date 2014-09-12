@@ -8,10 +8,4 @@ class ScriptController < ApplicationController
     @scripts = Script.search(params[:search])
   end
 
-  private
-
-    def book_number
-      params[:script][:book]
-    end
-
 end
