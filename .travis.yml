@@ -1,12 +1,8 @@
 language: ruby
 rvm:
   - 2.1.2
-  - jruby-18mode
-  - jruby-19mode
   - rbx-2
   - ruby-head
-  - jruby-head
-  - ree
 addons:
   postgresql: "9.3"
 before_script:
