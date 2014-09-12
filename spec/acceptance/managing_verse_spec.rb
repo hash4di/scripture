@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 include Warden::Test::Helpers
 Warden.test_mode!
 
-feature "Add new verse" do
+feature "User manage a verse:" do
 
   context "Login: " do
     scenario "User not logged properly" do
@@ -20,7 +20,7 @@ feature "Add new verse" do
   end
 
 
-  context "User manage a verse" do
+  context "User create a verse - " do
 
     background do
       @user = FactoryGirl.create(:user)
@@ -87,24 +87,42 @@ feature "Add new verse" do
       expect(page).to have_text("Verse was successfully destroyed.")
     end
 
-    scenario "User search a verse" do
+  end
+
+  context "User search a Verse in own verses and Bible" do
+
+    background do
+      @user = FactoryGirl.create(:user)
+      @verse = FactoryGirl.create(:verse)
+      @scripts = FactoryGirl.create_list(:script, 10)
+      login
+    end
+
+    scenario "User search a verse by verses page" do
       visit verses
       find("[@alt='New Verse']").click
 
       expect(page).to have_text("New verse")
 
       fill_in "Title", :with => "Iz 40:26"
-      fill_in "Description", :with => "Ciekawy dla mnie werset"
+      fill_in "Description", :with => "Lorem ipsum dolor sit"
       fill_in "Label", :with => "Osobisty"
 
       click_button "Create Verse"
 
       expect(page).to have_text("Iz 40:26")
-      visit verses
-      click_link "Iz 40:26"
-      find("[@alt='Delete verse']").click
+      expect(page).to have_text("Lorem ipsum dolor sit")
 
-      expect(page).to have_text("Verse was successfully destroyed.")
+      visit verses
+      fill_in "search-bar", :with => "Lorem ipsum dolor sit"
+
+      find('#submit').click
+
+      expect(page).to have_text("Search in your Verses:")
+      expect(page).to have_text("Lorem ipsum dolor sit")
+      expect(page).to have_text("Search in Bible:")
+      expect(page).to have_text("Lorem ipsum dolor sit amet, consectetur")
     end
+
   end
 end
