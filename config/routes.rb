@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       get 'search'
     end
   end
+  get "/script/:book/:chapter" => 'script#show'
   root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
