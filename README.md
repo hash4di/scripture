@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/hash4di/scripture.png?label=ready&title=Ready)](https://waffle.io/hash4di/scripture)
 scripture
 =========
 
