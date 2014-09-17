@@ -45,9 +45,9 @@ ActiveRecord::Schema.define(version: 20140722103518) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "verses", force: true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "label"
+    t.string   "title",       default: "", null: false
+    t.text     "description", default: "", null: false
+    t.string   "label",       default: "", null: false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

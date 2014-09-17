@@ -1,0 +1,19 @@
+<%= render 'header' %>
+
+<div class="container">
+  <h3>Read verses:</h3>
+  <table class="table table-hover table-condensed table-striped">
+    <thead>
+      <tr>
+      </tr>
+    </thead>
+
+    <tbody>
+    <% Script.current_script(params[:book_id], params[:chapter_id]).each do |script| %>
+      <tr>
+        <td><%= script.body  %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>

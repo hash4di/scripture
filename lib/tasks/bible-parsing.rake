@@ -1,7 +1,3 @@
-#!../bin/rails runner
-#utf-8
-require 'rubygems'
-require 'nokogiri'
 require 'open-uri'
 
 task :bible_parsing => :environment do

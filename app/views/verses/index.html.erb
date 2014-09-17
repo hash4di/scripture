@@ -22,7 +22,7 @@
   <h2>Your Verses</h2>
 </div>
 <div class="container">
-  <%= form_tag verses_path && url_for(:controller => 'script', :action => 'search'), :method => 'get', :role => 'search' do %>
+  <%= form_tag verses_path && url_for(:controller => 'books', :action => 'search'), :method => 'get', :role => 'search' do %>
     <div class="form-group">
       <%= text_field_tag :search, params[:search], :class => 'form-control', :id => "search-bar", :placeholder => 'Search', :type=>"search" %>
     </div>

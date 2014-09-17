@@ -4,16 +4,16 @@
     <thead>
       <tr>
         <th>Book</th>
-        <th>Chapt.</th>
-        <th>Ver.</th>
-        <th>Content:</th>
       </tr>
     </thead>
 
     <tbody>
+      <% Book::BOOKS.each do |id, name| %>
         <tr>
-          <td><%= @script %></td>
+          <td><%= link_to name, books_path(id) %></td>
         </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
+

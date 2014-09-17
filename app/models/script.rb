@@ -14,7 +14,8 @@
 class Script < ActiveRecord::Base
   include SearchCop
 
-
+  scope :current_chapter, ->(book_id) { select('DISTINCT chapter').where(book: book_id).order(:chapter) }
+  scope :current_script, ->(book_id, chapter_id) { select(:body).where(book: book_id, chapter: chapter_id).order(:id) }
 
   self.search_scope :search do
     attributes :body
