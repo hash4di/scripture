@@ -1,0 +1,11 @@
+<%= render 'header' %>
+
+<div class="container">
+  <h3>Show chapter:</h3>
+
+  <div class="btn-toolbar">
+  <% Script.current_chapter(params[:id]).each do |chapter| %>
+    <%= link_to chapter.chapter, chapter_path(params[:id], chapter.chapter), :class => "btn btn-default", :type => "button", :id => "verse-btn" %>
+  <% end %>
+  </div>
+</div>

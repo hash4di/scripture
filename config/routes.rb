@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   devise_for :users
   resources :verses
   resources :home
-  resources :script do
+  resources :script, only: :index
+  resources :books, only: :show do
     collection do
       get 'search'
     end
   end
+  get "/books/:book_id/:chapter_id" => 'chapters#show', as: :chapter
   root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.

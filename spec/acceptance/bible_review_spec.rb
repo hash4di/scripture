@@ -17,7 +17,7 @@ feature "Bible review" do
       visit homepage
       find("[@alt='Bible']").click
 
-      expect(page).to have_text("Reading Bible as bi12 will be soon")
+      expect(page).to have_text("Choose book")
     end
 
     scenario "User search for a specific verse" do
@@ -84,7 +84,7 @@ feature "Bible review" do
       expect(page).to have_text("Lorem ipsum dolor sit amet, consectetur")
 
       find("[@alt='Clear']").click
-      expect(page).to have_text("Reading Bible as bi12 will be soon")
+      expect(page).to have_text("Choose book")
     end
 
   end

@@ -1,18 +1,20 @@
-sqlite: &sqlite
-  adapter: sqlite3
-  database: db/<%= Rails.env %>.sqlite3
-
-# Must be commented because is some kind of BUG in development mode - it call mysql o.O
-#mysql: &mysql
-  #adapter: mysql2
-  #database: "<%=ENV['OPENSHIFT_APP_NAME']%>"
-  #username: "<%=ENV['OPENSHIFT_MYSQL_DB_USERNAME']%>"
-  #password: "<%=ENV['OPENSHIFT_MYSQL_DB_PASSWORD']%>"
-  #host:     <%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>
-  #port:     <%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
-
-postgresql: &postgresql
+defaults: &defaults
+  pool: 5
+  timeout: 5000
+  encoding: utf8
   adapter: postgresql
+
+development:
+  <<: *defaults
+  database: script_db_development
+
+test:
+  <<: *defaults
+  database: travis_ci_test
+  username: postgres
+
+production:
+  <<: *defaults
   database: <%=ENV['OPENSHIFT_APP_NAME']%>
   username: <%=ENV['OPENSHIFT_POSTGRESQL_DB_USERNAME']%>
   password: <%=ENV['OPENSHIFT_POSTGRESQL_DB_PASSWORD']%>
@@ -20,20 +22,3 @@ postgresql: &postgresql
   port:     <%=ENV['OPENSHIFT_POSTGRESQL_DB_PORT']%>
   min_messages: ERROR
   reconnect: false
-
-defaults: &defaults
-  pool: 5
-  timeout: 5000
-  encoding: utf8
-  <<: *<%= ENV['RAILS_DB'] || "postgresql" %>
-
-development:
-  <<: *defaults
-
-test:
-  adapter: postgresql
-  database: travis_ci_test
-  username: postgres
-
-production:
-  <<: *defaults
