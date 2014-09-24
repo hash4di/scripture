@@ -8,13 +8,13 @@ feature "User manage a verse:" do
   context "Login: " do
     scenario "User not logged properly" do
       visit homepage
-      click_link "Sign in"
+      click_link "Zaloguj"
 
       fill_in "user_email", :with => "example"
       fill_in "user_password", :with => "password123"
-      click_button "Sign in"
+      click_button "Zaloguj"
 
-      expect(page).to have_text("Invalid email or password")
+      expect(page).to have_text("Błędny adres email lub hasło.")
     end
 
   end
@@ -32,13 +32,13 @@ feature "User manage a verse:" do
       visit homepage
       find("[@alt='New Verse']").click
 
-      expect(page).to have_text("New verse")
+      expect(page).to have_text("Nowy Werset")
 
-      fill_in "Title", :with => "Iz 40:26"
-      fill_in "Description", :with => "Ciekawy dla mnie werset"
-      fill_in "Label", :with => "Osobisty"
+      fill_in "Tytuł", :with => "Iz 40:26"
+      fill_in "Opis", :with => "Ciekawy dla mnie werset"
+      fill_in "Kategoria", :with => "Osobisty"
 
-      click_button "Create Verse"
+      click_button "Utwórz"
 
       expect(page).to have_text("Iz 40:26")
     end
@@ -47,22 +47,22 @@ feature "User manage a verse:" do
       visit verses
       find("[@alt='New Verse']").click
 
-      expect(page).to have_text("New verse")
+      expect(page).to have_text("Nowy Werset")
 
-      fill_in "Title", :with => "Iz 40:26"
-      fill_in "Description", :with => "Ciekawy dla mnie werset"
-      fill_in "Label", :with => "Osobisty"
+      fill_in "Tytuł", :with => "Iz 40:26"
+      fill_in "Opis", :with => "Ciekawy dla mnie werset"
+      fill_in "Kategoria", :with => "Osobisty"
 
-      click_button "Create Verse"
+      click_button "Utwórz"
 
       expect(page).to have_text("Iz 40:26")
-      click_link "Edit"
-      expect(page).to have_text("Editing verse")
+      click_link "Edytuj"
+      expect(page).to have_text("Edycja wersetu")
 
-      fill_in "Title", :with => "FooBar3 20:20"
-      fill_in "Description", :with => "Jeszcze ciekawszy tekst"
-      fill_in "Label", :with => "Inne"
-      click_button "Update Verse"
+      fill_in "Tytuł", :with => "FooBar3 20:20"
+      fill_in "Opis", :with => "Jeszcze ciekawszy tekst"
+      fill_in "Kategoria", :with => "Inne"
+      click_button "Utwórz"
 
       expect(page).to have_text("FooBar3 20:20")
     end
@@ -71,13 +71,13 @@ feature "User manage a verse:" do
       visit verses
       find("[@alt='New Verse']").click
 
-      expect(page).to have_text("New verse")
+      expect(page).to have_text("Nowy Werset")
 
-      fill_in "Title", :with => "Iz 40:26"
-      fill_in "Description", :with => "Ciekawy dla mnie werset"
-      fill_in "Label", :with => "Osobisty"
+      fill_in "Tytuł", :with => "Iz 40:26"
+      fill_in "Opis", :with => "Ciekawy dla mnie werset"
+      fill_in "Kategoria", :with => "Osobisty"
 
-      click_button "Create Verse"
+      click_button "Utwórz"
 
       expect(page).to have_text("Iz 40:26")
       visit verses
@@ -102,13 +102,13 @@ feature "User manage a verse:" do
       visit verses
       find("[@alt='New Verse']").click
 
-      expect(page).to have_text("New verse")
+      expect(page).to have_text("Nowy Werset")
 
-      fill_in "Title", :with => "Iz 40:26"
-      fill_in "Description", :with => "Lorem ipsum dolor sit"
-      fill_in "Label", :with => "Osobisty"
+      fill_in "Tytuł", :with => "Iz 40:26"
+      fill_in "Opis", :with => "Lorem ipsum dolor sit"
+      fill_in "Kategoria", :with => "Osobisty"
 
-      click_button "Create Verse"
+      click_button "Utwórz"
 
       expect(page).to have_text("Iz 40:26")
       expect(page).to have_text("Lorem ipsum dolor sit")
@@ -118,9 +118,9 @@ feature "User manage a verse:" do
 
       find('#submit').click
 
-      expect(page).to have_text("Search in your Verses:")
+      expect(page).to have_text("Wyniki w Twoich wersetach:")
       expect(page).to have_text("Lorem ipsum dolor sit")
-      expect(page).to have_text("Search in Bible:")
+      expect(page).to have_text("Wyniki w Biblii:")
       expect(page).to have_text("Lorem ipsum dolor sit amet, consectetur")
     end
 

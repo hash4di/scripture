@@ -71,7 +71,7 @@ describe Verse do
     it do
       should ensure_length_of(:description).
       is_at_most(120).
-      with_message('Description cannot be more than 120 characters')
+      with_message("Opis nie może być dłuższy niż 120 słów")
     end
   end
 
@@ -79,7 +79,7 @@ describe Verse do
     it do
       should ensure_length_of(:label).
       is_at_most(20).
-      with_message('Label cannot be more than 20 characters')
+      with_message("Nazwa kategorii nie może być dłuższa niż 20 znaków")
     end
   end
 end

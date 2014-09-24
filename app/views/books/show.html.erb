@@ -1,7 +1,7 @@
 <%= render 'header' %>
 
 <div class="container">
-  <h3>Show chapter:</h3>
+  <h3><%= t "books.choose_chapter" %></h3>
 
   <div class="btn-toolbar">
   <% Script.current_chapter(params[:id]).each do |chapter| %>

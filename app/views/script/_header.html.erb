@@ -9,7 +9,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "back", root_path, :class => 'navbar-brand' %>
+        <%= link_to "#{t "back"}", root_path, :class => 'navbar-brand' %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,11 +22,11 @@
         </ul>
         <%= form_tag verses_path && url_for(:controller => 'books', :action => 'search'), :method => 'get', :class => 'navbar-form navbar-left', :role => 'search' do %>
           <div class="form-group">
-            <%= text_field_tag :search, params[:search], :class => 'form-control', :id => "search-bar", :placeholder => 'Search', :type=>"search" %>
+            <%= text_field_tag :search, params[:search], :class => 'form-control', :id => "search-bar", :placeholder => "#{t "search"}", :type=>"search" %>
           </div>
           <div class="form-group">
             <%= button_tag(type:"submit", class:"btn btn-default", :id => "submit", :name => nil, :alt => "Search") do %>
-              <span>Search </span><span class="glyphicon glyphicon-search"></span>
+              <span><%= t "search" %> </span><span class="glyphicon glyphicon-search"></span>
             <% end %>
             <%= link_to "/script", :class => 'btn btn-default', :type => 'button', :alt => 'Clear'  do %>
               <span class="glyphicon glyphicon-remove"></span>

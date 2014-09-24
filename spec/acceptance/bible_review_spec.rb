@@ -17,7 +17,7 @@ feature "Bible review" do
       visit homepage
       find("[@alt='Bible']").click
 
-      expect(page).to have_text("Choose book")
+      expect(page).to have_text("Wybierz księgę")
     end
 
     scenario "User search for a specific verse" do
@@ -34,13 +34,13 @@ feature "Bible review" do
       visit verses
       find("[@alt='New Verse']").click
 
-      expect(page).to have_text("New verse")
+      expect(page).to have_text("Nowy Werset")
 
-      fill_in "Title", :with => "Iz 40:26"
-      fill_in "Description", :with => "Lorem ipsum dolor sit"
-      fill_in "Label", :with => "Osobisty"
+      fill_in "Tytuł", :with => "Iz 40:26"
+      fill_in "Opis", :with => "Lorem ipsum dolor sit"
+      fill_in "Kategoria", :with => "Osobisty"
 
-      click_button "Create Verse"
+      click_button "Utwórz"
 
       expect(page).to have_text("Iz 40:26")
       expect(page).to have_text("Lorem ipsum dolor sit")
@@ -51,9 +51,9 @@ feature "Bible review" do
 
       find('#submit').click
 
-      expect(page).to have_text("Search in your Verses:")
+      expect(page).to have_text("Wyniki w Twoich wersetach:")
       expect(page).to have_text("Lorem ipsum dolor sit")
-      expect(page).to have_text("Search in Bible:")
+      expect(page).to have_text("Wyniki w Biblii:")
       expect(page).to have_text("Lorem ipsum dolor sit amet, consectetur")
     end
 
@@ -61,13 +61,13 @@ feature "Bible review" do
       visit verses
       find("[@alt='New Verse']").click
 
-      expect(page).to have_text("New verse")
+      expect(page).to have_text("Nowy Werset")
 
-      fill_in "Title", :with => "Iz 40:26"
-      fill_in "Description", :with => "Lorem ipsum dolor sit"
-      fill_in "Label", :with => "Osobisty"
+      fill_in "Tytuł", :with => "Iz 40:26"
+      fill_in "Opis", :with => "Lorem ipsum dolor sit"
+      fill_in "Kategoria", :with => "Osobisty"
 
-      click_button "Create Verse"
+      click_button "Utwórz"
 
       expect(page).to have_text("Iz 40:26")
       expect(page).to have_text("Lorem ipsum dolor sit")
@@ -78,13 +78,13 @@ feature "Bible review" do
 
       find('#submit').click
 
-      expect(page).to have_text("Search in your Verses:")
+      expect(page).to have_text("Wyniki w Twoich wersetach:")
       expect(page).to have_text("Lorem ipsum dolor sit")
-      expect(page).to have_text("Search in Bible:")
+      expect(page).to have_text("Wyniki w Biblii:")
       expect(page).to have_text("Lorem ipsum dolor sit amet, consectetur")
 
       find("[@alt='Clear']").click
-      expect(page).to have_text("Choose book")
+      expect(page).to have_text("Wybierz księgę")
     end
 
   end

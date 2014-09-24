@@ -1,19 +1,19 @@
 <%= simple_form_for @verse, :html => { :class => 'form'
   } do |f| %>
   <div class="form-group">
-    <%= f.input :title, :type => "title", :class => "form-cotrol", :placeholder => "Title" %>
+    <%= f.input :title, :type => "title", :class => "form-cotrol", :label => "#{t "title"}", :placeholder => "#{t "title"}" %>
   </div>
   <div class="form-group">
-    <%= f.input :description, :type => "description", :class => "form-cotrol", :placeholder => "Description" %>
+    <%= f.input :description, :type => "description", :class => "form-cotrol", :label => "#{t "description"}", :placeholder => "#{t "description"}" %>
   </div>
   <div id='add_new_label'>
-    <%= f.input :label %>
+    <%= f.input :label, :type => "label", :class => "form-control", :label => "#{t "label"}", :placeholder => "#{t "label"}" %>
   </div>
   <div class="form-group">
     <div id='select_label' hidden>
       <div class='control-group string required verse_label'>
         <label class="text required control-label" for="verse_label">
-          <abbr title="required">*</abbr> Label</label>
+          <abbr title="required">* </abbr><%= t "label" %></label>
         <div class='controls'>
           <%= label_select(@verse) %>
         </div>
@@ -21,13 +21,13 @@
     </div>
   </div>
   <div class="form-group">
-    <a href='javascript:void(0)', class='controls btn btn-default', id='create_new_label', hidden>Create new label</a>
+    <a href='javascript:void(0)', class='controls btn btn-default', id='create_new_label', hidden><%= t "verses.create_new_label" %></a>
   </div>
   <div class="form-group">
-    <a href='javascript:void(0)', class='controls', id='use_existing_label', alt='use_existing_label'>Use existing label</a>
+    <a href='javascript:void(0)', class='controls', id='use_existing_label', alt='use_existing_label'><%= t "verses.use_existing_label" %></a>
   </div>
   <div class="form-group">
-    <%= f.button :submit, :class => "btn btn-primary" %>
+    <%= f.submit "#{t "verses.create_verse"}", :class => "btn btn-primary" %>
   </div>
 <% end %>
 

@@ -1,13 +1,13 @@
 <%= render :partial => 'chapters/header' %>
 
 <div class="container">
-  <h3>Search in your Verses:</h3>
+  <h3><%= t "books.results_in_your_verses" %></h3>
   <table class="table table-hover table-condensed table-striped">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Label</th>
+        <th><%= t "title" %></th>
+        <th><%= t "description" %></th>
+        <th><%= t "label" %></th>
       </tr>
     </thead>
 
@@ -28,14 +28,14 @@
 </div>
 </br>
 <div class="container">
-  <h3>Search in Bible:</h3>
+  <h3><%= t "books.results_in_bible" %></h3>
   <table class="table table-hover table-condensed table-striped">
     <thead>
       <tr>
-        <th>Book</th>
-        <th>Chapt.</th>
-        <th>Ver.</th>
-        <th>Content:</th>
+        <th><%= t "books.book" %></th>
+        <th><%= t "books.chapter" %></th>
+        <th><%= t "books.verse" %></th>
+        <th><%= t "books.content" %></th>
       </tr>
     </thead>
 
