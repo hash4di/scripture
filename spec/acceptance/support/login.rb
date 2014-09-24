@@ -4,18 +4,18 @@ module LoginHelpers
 
   def login
     visit homepage
-    click_link "Sign in"
-    page.should have_content "Sign in"
+    click_link "Zaloguj"
+    page.should have_content "Zaloguj"
     email = @user ? @user.email : "user@example.com"
     fill_in "user_email", :with => email
     fill_in "user_password", :with => "password123"
-    click_button "Sign in"
-    page.should have_content "Signed in successfully."
+    click_button "Zaloguj"
+    page.should have_content "Zostałeś zalogowany."
   end
 
   def logout
     visit homepage
-    click_link "Sign out"
+    click_link "Zostałeś wylogowany."
   end
 
 end

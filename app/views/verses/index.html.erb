@@ -11,24 +11,24 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "logged as: #{current_user.email}", 'javascript:;' %></li>
-          <li><%= button_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger navbar-btn', :id => 'custom-btn' %></li>
+          <li><%= link_to "#{t "verses.logged_as" } #{current_user.email}", 'javascript:;' %></li>
+          <li><%= button_to "#{t "verses.sign_out" }", destroy_user_session_path, :method => :delete, :class => 'btn btn-danger navbar-btn', :id => 'custom-btn' %></li>
         </ul>
       </div>
     </div>
   </div>
 </nav>
 <div class="container">
-  <h2>Your Verses</h2>
+  <h2><%= t "verses.your_verses" %></h2>
 </div>
 <div class="container">
   <%= form_tag verses_path && url_for(:controller => 'books', :action => 'search'), :method => 'get', :role => 'search' do %>
     <div class="form-group">
-      <%= text_field_tag :search, params[:search], :class => 'form-control', :id => "search-bar", :placeholder => 'Search', :type=>"search" %>
+      <%= text_field_tag :search, params[:search], :class => 'form-control', :id => "search-bar", :placeholder => "#{t "search"}", :type=>"search" %>
     </div>
     <div class="btn-group">
       <%= button_tag(type:"submit", class:"btn btn-default", :name => nil, :id => "submit") do %>
-        <span>Search </span><span class="glyphicon glyphicon-search"></span>
+        <span><%= t "search" %> </span><span class="glyphicon glyphicon-search"></span>
       <% end %>
       <%= link_to new_verse_path, :class => "btn btn-primary", :type => 'button', :alt => 'New Verse' do %>
         <span class="glyphicon glyphicon-plus"></span>
@@ -45,9 +45,9 @@
   <table class="table table-hover table-condensed table-striped">
     <thead>
       <tr>
-        <th>Title</th>
-        <th>Description</th>
-        <th>Label</th>
+        <th><%= t "title" %></th>
+        <th><%= t "description" %></th>
+        <th><%= t "label" %></th>
       </tr>
     </thead>
 

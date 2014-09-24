@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
-
-  devise_for :users
-  resources :verses
-  resources :home
-  resources :script, only: :index
-  resources :books, only: :show do
-    collection do
-      get 'search'
+  scope ":locale", locale: /#{I18n.available_locales.join("|")}/ do
+    devise_for :users
+    resources :verses
+    resources :home, only: :index
+    resources :script, only: :index
+    resources :books, only: :show do
+      collection do
+        get 'search'
+      end
     end
+    get "/books/:book_id/:chapter_id" => 'chapters#show', as: :chapter
+    root to: 'home#index'
   end
-  get "/books/:book_id/:chapter_id" => 'chapters#show', as: :chapter
-  root to: 'home#index'
+  get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
+  get '', to: redirect("/#{I18n.default_locale}")
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
