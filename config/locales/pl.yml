@@ -307,7 +307,7 @@ pl:
   home:
     index:
       language: "Język:"
-      description: "Zachowaj swoje ulubione wersety z Biblii Przekładu Nowego Świada oraz dziel się z innymi. Miłego użytkowania!"
+      description: "Zachowaj swoje ulubione wersety z Biblii Przekładu Nowego Świata oraz dziel się z innymi. Miłego użytkowania!"
       sign_up: "Zarejestruj"
       or: "lub"
       sign_in: "Zaloguj"
